@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/public/favicon.png">
+  <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="/src/hamburgers.css">
+  <title>SIPER KALKULATOR</title>
+</head>
+<body>
+  <header class="container-header">
+    <nav class="wrapper">
+      <div class="title">
+        <p class="firstname">SI</p>
+        <p class="lastname">PER</p>
+      </div>
+      <ul class="navigation">
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>
+          <a href="kalkulator.html">Kalkulator</a>
+        </li>
+        <li>
+          <a href="quiz.html">Play Quiz</a>
+        </li>
+      </ul>
+      <button id="menu-button" class="hamburger hamburger--emphatic" type="button">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>  
+    </nav>
+  </header>
+  <main>
+    <div class="calculator">
+      <!-- Input Section -->
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="n">Nilai n (Total Objek):</label>
+                    <input type="number" id="n" min="0" placeholder="Masukkan nilai n">
+                </div>
+                <div class="input-group">
+                    <label for="r">Nilai r (Objek Diambil):</label>
+                    <input type="number" id="r" min="0" placeholder="Masukkan nilai r">
+                </div>
+                <div class="input-group">
+                    <label for="calculationType">Jenis Perhitungan:</label>
+                    <select id="calculationType">
+                        <optgroup label="Permutasi">
+                            <option value="permutation">Permutasi Biasa P(n,r)</option>
+                            <option value="permutation_same">Permutasi dengan Unsur Sama</option>
+                            <option value="circular">Permutasi Siklis</option>
+                        </optgroup>
+                        <optgroup label="Kombinasi">
+                            <option value="combination">Kombinasi Biasa C(n,r)</option>
+                            <option value="combination_repeat">Kombinasi dengan Pengulangan</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <!-- nambah form input untuk permutasi unsur sama -->
+                <div class="input-group same-elements-input" id="sameElementsInput" style="display: none;">
+                    <label>Jumlah Unsur Sama (pisahkan koma):</label>
+                    <input type="text" id="sameElements" placeholder="Contoh: 2,3,1">
+                </div>
+
+                <button onclick="calculate()" class="calculate-btn">Hitung Sekarang!</button>
+            </div>
+            <!-- Result Section -->
+            <div class="result-section">
+                <div class="result-card">
+                    <h3>Hasil Perhitungan</h3>
+                    <div id="result" class="result">
+                        <p>Masukkan nilai dan klik "Hitung Sekarang!"</p>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <h3>Rumus yang Digunakan</h3>
+                    <div id="formula" class="formula">
+                        <p>Pilih jenis perhitungan untuk melihat rumus</p>
+                    </div>
+                </div>
+            </div>
+            <!-- History Section -->
+            <div class="history-section">
+                <h3>Riwayat Perhitungan</h3>
+                <div id="history" class="history-list"></div>
+                <button onclick="clearHistory()" class="clear-btn">Hapus Riwayat</button>
+            </div>
+        </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 David Guntoro</p>
+  </footer>
+</body>
+<script src="/src/main.js"></script>
+</html>
