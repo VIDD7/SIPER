@@ -2,17 +2,27 @@
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 body {
   background: url('/public/bg.jpeg') no-repeat center center fixed;
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 main {
-  width: 90%; 
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 40px 20px;
   color: #fff;
+  box-sizing: border-box;
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .container-header {
   background-color: #0A0A1F;
@@ -69,6 +79,9 @@ footer {
 .navigation li a:hover {
   background-color: #00BFFF;
 }
+.active-link {
+  background-color: #00BFFF;
+}
 /* mobile default */
 .navigation {
   display: none;
@@ -79,34 +92,34 @@ footer {
 }
 /* mobile active */
 .navigation.active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 88px;
-    right: 8px;
-    width: 50%;
-    max-width: 350px;
-    background-color: #0A0A1F;
-    border-radius: 10px;
-    gap: 10px;
-    z-index: 999;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    padding: 23px 15px; 
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 88px;
+  right: 8px;
+  width: 50%;
+  max-width: 350px;
+  background-color: #0A0A1F;
+  border-radius: 10px;
+  gap: 10px;
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  padding: 23px 15px; 
 }
 .navigation.active li {
-    width: 100%;
-    margin: 0; 
-    padding: 0;
+  width: 100%;
+  margin: 0; 
+  padding: 0;
 }
 .navigation.active li a {
-    display: block; 
-    margin-right: 0;
-    transition: background-color 0.3s, transform 0.2s;
-    padding: 10px 15px;
-    margin: 0 10px; 
-    border-radius: 8px;
-    text-align: center; 
-    transition: background-color 0.3s;
+  display: block; 
+  margin-right: 0;
+  transition: background-color 0.3s, transform 0.2s;
+  padding: 10px 15px;
+  margin: 0 10px; 
+  border-radius: 8px;
+  text-align: center; 
+  transition: background-color 0.3s;
 }
 /* media query tampilan desktop > 768px */
 @media (min-width: 768px) {
@@ -128,18 +141,17 @@ footer {
 }
 h2 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   font-size: 28px;
 }
 .developer-cards {
   display: flex;
-  gap: 30px; /* Jarak antar kartu */
-  justify-content: space-around;
+  gap: 70px; /* Jarak antar kartu */
+  justify-content: center;
   margin-bottom: 60px;
 }
 .card {
   background-color: #0A0A1F;
-  border: 2px solid #00BFFF;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
@@ -158,6 +170,9 @@ h2 {
     flex-direction: column; /* Kartu disusun dari atas ke bawah */
     align-items: center;
   }
+  .developer-cards {
+    gap: 30px;
+  }
   .card {
     width: 90%;
     max-width: 270px;
@@ -166,10 +181,11 @@ h2 {
 
 /* style pembelajaran */
 .container-materi {
-  border: 2px solid #00BFFF;
   border-radius: 10px;
   background-color: #0A0A1F;
   backdrop-filter: blur(50px);
+  margin: 40px 50px;
+  margin-top: 0;
   padding: 30px;
 }
 .title-materi {
@@ -197,7 +213,7 @@ h2 {
   border-radius: 10px;
   padding-bottom: 20px;
 }
-.materi-1, .materi-2, .materi-3, .materi-4, .materi-5{
+.materi-1, .materi-2, .materi-3, .materi-4, .materi-5 {
   text-align: justify;
   margin: 5px;
   padding: 8px;
@@ -219,50 +235,57 @@ h2 {
   padding: 8px;
 }
 /* end style materi desktop */
+
 /* style buat display mobile  */
 @media (max-width: 767px) {
-.img-rumus {
-  padding: 10px 0; 
-  width: 100%;
-  height: auto; /* Jaga rasio aspek */
-  max-width: 300px;
-  display: block;
-  margin: 0 auto 15px auto;
-}
-.title-materi {
-  padding-top: 20px;
-}
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* Rasio 16:9 */
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
-  background: #000;
-  margin-top: 20px; 
-}
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; 
-}
-.materi-1, .materi-2, .materi-3, .materi-4, .materi-5{
-  text-align: justify;
-  margin: 0;
-  padding: 8px 0;
-}
-.definisi {
-  text-align: justify;
-  margin: 0;
-  padding: 8px 0;
-}
-.text-aturan-permutasi {
-  text-align: justify;
-  margin: 0;
-  padding: 8px 0;
-}
+  main {
+    padding: 40px 20px;
+  }
+  .container-materi {
+    margin: 0;
+  }
+  .img-rumus {
+    padding: 10px 0; 
+    width: 100%;
+    height: auto; /* Jaga rasio aspek */
+    max-width: 300px;
+    display: block;
+    margin: 0 auto 15px auto;
+  }
+  .title-materi {
+    padding-top: 20px;
+  }
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Rasio 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    margin-top: 20px; 
+  }
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+  }
+  .materi-1, .materi-2, .materi-3, .materi-4, .materi-5 {
+    text-align: justify;
+    margin: 0;
+    padding: 8px 0;
+  }
+  .definisi {
+    text-align: justify;
+    margin: 0;
+    padding: 8px 0;
+  }
+  .text-aturan-permutasi {
+    text-align: justify;
+    margin: 0;
+    padding: 8px 0;
+  }
 }
 /* end style mobile materi */
 
@@ -270,10 +293,8 @@ h2 {
 .calculator {
   background: #0A0A1F;
   color: #000;
-  border: 2px solid #00BFFF;
   border-radius: 10px;
   padding: 40px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 .input-section {
   display: grid;
@@ -295,14 +316,14 @@ input[type=number] {
 }
 input, select {
   padding: 12px;
-  border: 2px solid #e1e5e9;
+  border: 2px solid #00BFFF;
   border-radius: 10px;
   font-size: 16px;
   transition: all 0.3s ease;
 }
 input:focus, select:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #00BFFF;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 .calculate-btn {
@@ -332,6 +353,7 @@ input:focus, select:focus {
   padding: 25px;
   border-radius: 15px;
   border-left: 5px solid #00BFFF;
+  min-height: 180px;
 }
 .result-card h3, .formula-card h3 {
   margin-bottom: 15px;
@@ -342,6 +364,7 @@ input:focus, select:focus {
   line-height: 1.6;
 }
 .history-section {
+  border-left: 5px solid #00BFFF;
   background: #f8f9fa;
   padding: 25px;
   border-radius: 15px;
@@ -376,115 +399,238 @@ input:focus, select:focus {
 }
 /* Responsive Design */
 @media (max-width: 768px) {
-.input-section {
-  grid-template-columns: 1fr;
-}
-.calculate-btn {
-  grid-column: span 1;
-}
-.result-section {
-  grid-template-columns: 1fr;
-}
-.container {
-  padding: 10px;
-}
-.calculator {
-  padding: 20px;
-}
+  .input-section {
+    grid-template-columns: 1fr;
+  }
+  .calculate-btn {
+    grid-column: span 1;
+  }
+  .result-section {
+    grid-template-columns: 1fr;
+  }
+  .calculator {
+    padding: 30px;
+  }
 }
 /* kalkulator style end */
 
-/* style quizz desktop */
-.container-quiz {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+/* style buat quizz */
+.quiz-container {
+  width: 100%;
   height: auto;
-  border: 2px solid #00BFFF;
-  border-radius: 10px;
-  padding: 40px;
-  background: #0A0A1F;
+  max-width: 700px;
+  margin: 0 auto;
 }
-.soal-permutasi, .soal-kombinasi {
-  border: none; 
-  height: auto; 
-  margin: 0; 
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.title-quiz {
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  font-size: 24px;
-  color: #fff;
+.quiz-title {
   text-align: center;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 30px;
 }
-.quiz-permutasi, .quiz-kombinasi {
+.timer-display {
+  font-size: 1.4em;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: red;
+  padding: 5px 10px;
+  background-color: transparent;
+  border-radius: 5px;
+}
+.question-area {
+  padding: 30px;
+  background-color: #0A0A1F;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  border: 2px solid #00BFFF;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+  width: 100%;
+  box-sizing: border-box;
+  color: #fff;
+}
+.question-text {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.options-area {
+  margin-top: 15px;
+}
+.quiz-option {
+  display: block;
+  margin-bottom: 10px;
+  padding: 12px;
+  background-color: #ffffff;
+  color: #000;
+  border: 2px solid #00BFFF;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+  font-size: 1em;
+}
+.quiz-option:hover {
+  background-color: #00BFFF;
+  border: 2px solid #fff;
+}
+.quiz-option input[type="radio"] {
+  margin-right: 10px;
+}
+/* Efek pas radio button terpilih */
+.quiz-option input[type="radio"]:checked + span {
+  font-weight: bold;
+  color: #00BFFF;
+}
+.quiz-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  margin-top: 15px;
+}
+#question-number-display {
+  font-weight: 600;
+  color: #fff;
+}
+#submit-answer-btn {
+  padding: 15px 25px;
+  background-color: #00BFFF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+#submit-answer-btn:hover {
+  background-color: #fff;
+  color: #00BFFF;
+}
+#submit-answer-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.feedback {
+  margin: 15px 0 0 0;
+  padding: 15px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1.1em;
+  text-align: center;
+  min-height: 50px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.feedback.active {
+  visibility: visible;
+  opacity: 1;
+}
+.feedback.correct {
+  background-color: #49ff95ff;
+  color: #000;
+}
+.feedback.incorrect {
+  background-color: red;
+  color: #000;
+}
+.results-area {
+  padding: 30px;
+  background-color: #0A0A1F;
+  border-radius: 8px;
+  border: 2px solid #00BFFF;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+  width: 100%;
+  box-sizing: border-box;
+}
+#score-summary {
+  color: #00BFFF;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+#review-area h4 {
+  margin-bottom: 15px;
+  color: #fff;
+}
+.review-item {
+  margin-bottom: 25px;
+  padding: 15px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  background-color: #fdfdfd;
+}
+.review-item h5 {
+  font-size: 1.1em;
+  color: #000;
+  margin-bottom: 10px;
+}
+.review-item p {
+  margin-bottom: 5px;
+  line-height: 1.5;
+  color: #000;
+}
+.review-item strong {
+  color: #333;
+}
+.correct-text {
+  color: #1feb74ff;
+  font-weight: bold;
+}
+.incorrect-text {
+  color: red;
+  font-weight: bold;
+}
+.hidden {
+  display: none !important;
+}
+.start-screen {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  padding: 15px;
-  margin: 0;
-}
-.form-input-jawaban {
-  margin-top: auto;
-  padding-top: 15px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-.input-sama-tombol {
-  display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 5px;
-}
-.cek-jawabannya {
-  padding: 12px;
-  background: #00BFFF;
-  color: #fff;
-  font-size: 14px;
-  font-weight: bold;
-  border: 2px solid #00BFFF;
-  border-radius: 10px;
-}
-.cek-jawabannya:hover {
-  background: #fff;
-  color: #00BFFF;
-  border: 2px solid #00BFFF;
-}
-.soal-style {
-  padding-bottom: 10px;
-  text-align: justify;
-}
-.input-quiz {
-  flex-grow: 1;
-  padding: 10px;
-  border: 2px solid #00BFFF;
+  justify-content: center;
+  width: 100%;
+  height: 400px;
+  max-width: 100%;
+  margin: 0;
+  text-align: center;
+  padding: 50px 0; 
+  background: url('/public/Quiz-banner.jpg') no-repeat center center;
+  background-size: cover;
   border-radius: 8px;
-  background: #0A0A1F;
+}
+.start-screen p {
+  font-size: 1.2em;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 8px;
+  color: #fff;
+  margin-bottom: 35px;
+  max-width: 80%;
+}
+#start-quiz-btn, .clear-all-btn {
+  padding: 12px 30px;
+  background-color: #00BFFF;
   color: white;
-  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+  display: inline-block;
   width: auto;
 }
-
-/* style quiz buat di mobile layar maximal 768px */
-@media (max-width: 768px) {
-.container-quiz {
-  grid-template-columns: 1fr; 
-  padding: 20px;
-  gap: 30px;
+#start-quiz-btn:hover, .clear-all-btn:hover {
+  background-color: #fff;
+  color: #00BFFF;
 }
-.quiz-permutasi, .quiz-kombinasi {
-  height: auto;
-}
-.input-sama-tombol .input-quiz {
-  width: 100%;
-  max-width: none;
-}
-.input-sama-tombol .cek-jawabannya {
+.clear-all-btn {
+  background-color: #00BFFF;
   width: 100%;
 }
+.clear-all-btn:hover {
+  background-color: #fff;
+  color: #00BFFF;
 }

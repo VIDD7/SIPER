@@ -17,7 +17,7 @@
       </div>
       <ul class="navigation">
         <li>
-          <a href="#">Home</a>
+          <a href="#" class="active-link">Home</a>
         </li>
         <li>
           <a href="kalkulator.html">Kalkulator</a>
@@ -35,20 +35,20 @@
   </header>
 <main>
     <section class="container-profil">
-      <h2>Profile Kami</h2>
+      <h2>Anggota Tim</h2>
       <div class="developer-cards">
         <div class="card">
-          <img src="/public/ME.png" alt="Foto Developer 1">
+          <img src="/public/ME.png" alt="Foto 1">
           <h3>David Guntoro</h3>
           <p>1062535</p>
         </div>
         <div class="card">
-          <img src="/public/AFFAN.png" alt="Foto Developer 2">
+          <img src="/public/AFFAN.png" alt="Foto 2">
           <h3>M. Affan Faiz Raihandy</h3>
           <p>1062543</p>
         </div>
         <div class="card">
-          <img src="/public/INTAN.png" alt="Foto Developer 3">
+          <img src="/public/INTAN.png" alt="Foto 3">
           <h3>Intan Pratama Meidyasari</h3>
           <p>1062539</p>
         </div>
@@ -72,40 +72,42 @@
         <div class="definisi">
           <h3 class="title-materi">Definisi</h3>
           <p class="text-materi">
-            Permutasi adalah cara untuk menentukan banyaknya susunan yang berbeda dari
-            beberapa unsur yang berbeda dengan memperhatikan urutannya.
+            Permutasi adalah cara untuk menentukan banyaknya susunan yang berbeda dari beberapa unsur yang berbeda dengan memperhatikan urutannya.
           </p>
         </div>
         <h3 class="text-aturan-permutasi">Berikut adalah beberapa aturan Permutasi:</h3>
         <div class="materi-1">
         <h3 class="title-materi">Permutasi Unsur Berbeda</h3>
         <p class="text-materi">
-            Permutasi dengan unsur yang berbeda adalah susunan unsur-unsur yang berbeda yang dibentuk dari $n$ unsur yang tersedia.
+            Banyaknya permutasi yang mungkin dari n unsur yang berbeda, apabila diambil sebanyak r unsur dimana r &lt; n.
         </p>
-        <img src="/public/bg.jpeg" alt="rumus-1" class="img-rumus" >
+        <p><strong>RUMUS:</strong></p>
+        <img src="/public/rumus/rumus1.jpeg" alt="rumus-1" class="img-rumus" >
         <p class="desc-rumus">
-            Dengan $n$ adalah jumlah kejadian yang bisa dipilih dan $r$ adalah jumlah kejadian yang harus dipilih.
+            Dengan n adalah banyaknya unsur yang tersedia dan r adalah banyak unsur yang diambil.
         </p>
       </div>
     <div class="materi-2">
         <h3 class="title-materi">Permutasi Unsur Sama</h3>
         <p class="text-materi">
-            Permutasi unsur sama adalah permutasi yang memiliki unsur yang bersifat sama atau identik.
+            Banyaknya permutasi yang mungkin dari n objek dengan k<sub>1</sub> objek jenis pertama yang sama, k<sub>2</sub> objek jenis kedua yang sama, dan seterusnya hingga k<sub>r</sub> objek jenis ke-r yang sama dengan k<sub>1</sub> + k<sub>2</sub> + ... + k<sub>r</sub> &le; n adalah banyaknya susunan yang berbeda dari n objek dengan memuat r objek yang sama.
         </p>
-        <img src="/public/bg.jpeg" alt="rumus-1" class="img-rumus" >
+        <p><strong>RUMUS:</strong></p>
+        <img src="/public/rumus/rumus2.jpeg" alt="rumus-1" class="img-rumus" >
         <p class="desc-rumus">
-            Dengan $n$ adalah banyak elemen seluruhnya dan $k$ adalah banyak elemen yang sama.
+            Dengan n adalah banyaknya unsur yang tersedia, k<sub>1</sub> adalah objek jenis pertama yang sama, k<sub>2</sub> adalah objek jenis kedua yang sama dan k<sub>r</sub> adalah objek jenis ke-r yang sama.
         </p>
     </div>
 
     <div class="materi-3">
         <h3 class="title-materi">Permutasi Siklis</h3>
         <p class="text-materi">
-            Permutasi Siklis digunakan untuk menyusun unsur berbeda dengan kondisi melingkar.
+            Banyaknya permutasi yang mungkin dari n objek berbeda yang disusun secara melingkar.
         </p>
-        <img src="/public/bg.jpeg" alt="rumus-1" class="img-rumus" >
+        <p><strong>RUMUS:</strong></p>
+        <img src="/public/rumus/rumus3.jpeg" alt="rumus-1" class="img-rumus" >
         <p class="desc-rumus">
-            Dengan $n$ adalah jumlah unsur yang disusun melingkar.
+            Dengan n adalah banyaknya unsur yang tersedia.
         </p>
     </div>
         <h2 class="title-materi-c">Kombinasi</h2>
@@ -123,37 +125,27 @@
         <div class="definisi">
           <h3 class="title-materi">Definisi</h3>
           <p class="text-materi">
-            Kombinasi adalah cara memilih objek tanpa memperhatikan urutannya,
-            hanya berfokus pada kelompoknya saja.
+            Kombinasi adalah cara memilih objek tanpa memperhatikan urutannya,  hanya berfokus pada kelompoknya saja.
           </p>
         </div>
-        <h3 class="text-aturan-permutasi">Berikut adalah beberapa aturan Kombinasi:</h3>
+        <h3 class="text-aturan-permutasi">Berikut adalah aturan Kombinasi:</h3>
         <div class="materi-4">
-        <h3 class="title-materi">Kombinasi Biasa</h3>
-        <p class="text-materi">
-            Kombinasi adalah proses pemilihan elemen dari himpunan, di mana urutan pemilihan elemen **tidak diperhatikan**.
-        </p>
-        <img src="/public/bg.jpeg" alt="rumus-1" class="img-rumus" >
-        <p class="desc-rumus">
-            Dengan $n$ adalah jumlah kejadian yang bisa dipilih dan $r$ adalah jumlah kejadian yang harus dipilih.
-        </p>
+          <h3 class="title-materi">Kombinasi Biasa</h3>
+          <p class="text-materi">
+            Cara mengelompokkan sebagian atau seluruh objek dari suatu kelompok tanpa memperhatikan urutan penempatannya.
+          </p>
+          <p><strong>RUMUS:</strong></p>
+          <img src="/public/rumus/rumus4.jpeg" alt="rumus-1" class="img-rumus" >
+          <p class="desc-rumus">
+            Dengan n adalah banyaknya unsur yang tersedia dan r adalah banyak unsur yang diambil.
+          </p>
         </div>
-    <div class="materi-5">
-        <h3 class="title-materi">Kombinasi dengan Pengulangan</h3>
-        <p class="text-materi">
-            Kombinasi dengan pengulangan memungkinkan elemen yang sama dapat dipilih lebih dari sekali.
-        </p>
-        <img src="/public/bg.jpeg" alt="rumus-1" class="img-rumus" >
-        <p class="desc-rumus">
-            Dengan $n$ adalah jenis objek dan $r$ adalah jumlah yang dipilih.
-        </p>
-    </div>
       </div>  
     </section>
   </main>
   <footer>
-    <p>&copy; 2025 David Guntoro</p>
+    <p>&copy; 2025 Kelompok 5</p>
   </footer>
 </body>
-<script src="/src/main.js"></script>
+<script src="src/main.js"></script>
 </html>
