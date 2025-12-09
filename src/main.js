@@ -92,7 +92,6 @@ function updateFormulaDisplay() {
         'circular': 'P(siklis) = (n-1)!',
         'combination': 'C(n,r) = n! / (r! × (n-r)!)',
     };
-    
     formulaDiv.innerHTML = `<p><strong>Rumus:</strong> ${formulas[type]}</p>`;
 }
 
@@ -142,7 +141,7 @@ function calculate() {
                 explanation = `P(siklis) = (${n}-1)! = ${result}`;
                 break;
         }
-        
+
         // Display result
         document.getElementById('result').innerHTML = `
             <p><strong>Hasil:</strong> ${result}</p>
