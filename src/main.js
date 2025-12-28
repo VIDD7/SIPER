@@ -13,7 +13,9 @@ menuButton.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 });
+
 // Script untuk kalkulator
+
 // Storage untuk history
 let calculationHistory = JSON.parse(localStorage.getItem('calcHistory')) || [];
 
@@ -102,8 +104,17 @@ function calculate() {
     const type = document.getElementById('calculationType').value;
     
     // Validasi input
-    if (isNaN(n) || n < 0) {
-        alert('Masukkan nilai n yang valid (bilangan bulat non-negatif)');
+    if (isNaN(n) || n < 0 || isNaN(r) || r < 0) {
+        Swal.fire({
+            title: 'Error',
+            text: 'Masukkan nilai n yang valid (bilangan bulat non-negatif)',
+            icon: 'error',
+            confirmButtonText: 'Oke',
+            confirmButtonColor: '#00BFFF',
+            background: '#000',
+            color: '#fff',
+        }
+        )
         return;
     }
     
@@ -112,13 +123,11 @@ function calculate() {
     try {
         switch(type) {
             case 'permutation':
-                if (isNaN(r) || r < 0) throw new Error('Masukkan nilai r yang valid');
                 result = permutation(n, r);
                 explanation = `P(${n},${r}) = ${n}! / (${n}-${r})! = ${result}`;
                 break;
                 
             case 'combination':
-                if (isNaN(r) || r < 0) throw new Error('Masukkan nilai r yang valid');
                 result = combination(n, r);
                 explanation = `C(${n},${r}) = ${n}! / (${r}! × (${n}-${r})!) = ${result}`;
                 break;
@@ -281,7 +290,7 @@ const reviewAreaEl = document.getElementById('review-area');
 const questionNumberDisplayEl = document.getElementById('question-number-display');
 const backgroundMusic = document.getElementById('background-music');
 
-// VARIABEL BARU UNTUK START/RESET
+// variabel untuk start atau reset
 const startScreenEl = document.getElementById('start-screen');
 const startQuizBtn = document.getElementById('start-quiz-btn');
 const clearAllBtn = document.getElementById('clear-all-btn'); 
@@ -317,7 +326,7 @@ function loadQuestion() {
     // Bikin elemen tombol (radio button) buat tiap pilihan jawaban
     currentQ.options.forEach(option => {
         const label = document.createElement('label');
-        label.className = 'quiz-option'; // Tambahkan class buat styling CSS
+        label.className = 'quiz-option';
         
         // Bikin radio input
         const input = document.createElement('input');
@@ -355,7 +364,7 @@ function startTimer() {
     }, 1000); // Jalan setiap 1 detik
 }
 
-// Fungsi buat nge-check jawaban user
+// Fungsi buat ngecheck jawaban user
 function submitAnswer(timeUp = false) {
     // Stop timer
     clearInterval(timer);
@@ -386,7 +395,7 @@ function submitAnswer(timeUp = false) {
         explanation: currentQ.explanation
     });
 
-    // Berikan umpan balik instan
+    // Berikan umpan balik
     showFeedback(isCorrect, timeUp, currentQ.answer);
 
     // Otomatis pindah ke soal berikutnya setelah beberapa detik
@@ -413,7 +422,7 @@ function showFeedback(isCorrect, timeUp, correctAnswer) {
     document.querySelectorAll('input[name="quiz-option"]').forEach(input => input.disabled = true);
 }
 
-// Fungsi ini dipanggil saat tombol "Mulai Kuis" diklik
+// Fungsi start quiz
 function startQuiz() {
     // Sembunyikan start screen
     startScreenEl.classList.add('hidden');
@@ -498,18 +507,16 @@ function clearAll() {
     }
 }
 
-// --- INI ADALAH STARTING POINT PROGRAM KUIS (Di-attach ke DOMContentLoaded) ---
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Pastikan ini dijalankan hanya di halaman kuis
+    // untuk memastikan ini dijalankan hanya di halaman page kuis
     if (quizContainer) {
-        // Kasih listener ke tombol 'Mulai Kuis'
+        // add event listener ke tombol 'Mulai Kuis'
         if (startQuizBtn) startQuizBtn.addEventListener('click', startQuiz); 
 
-        // Kasih listener ke tombol 'Kirim Jawaban'
+        // add event listener ke tombol 'Kirim Jawaban'
         if (submitButton) submitButton.addEventListener('click', () => submitAnswer());
         
-        // Kasih listener ke tombol 'Ulangi Kuis'
+        // add event listener ke tombol 'Ulangi Kuis'
         if (clearAllBtn) clearAllBtn.addEventListener('click', clearAll); 
     }
     
