@@ -30,7 +30,7 @@
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>
-      </button>  
+      </button>
     </nav>
   </header>
   <main>
@@ -38,15 +38,7 @@
     <div class="calculator">
       <!-- Input Section -->
             <div class="input-section">
-                <div class="input-group">
-                    <label for="n">Nilai n (Total Objek):</label>
-                    <input type="number" id="n" min="0" placeholder="Masukkan nilai n">
-                </div>
-                <div class="input-group">
-                    <label for="r">Nilai r (Objek Diambil):</label>
-                    <input type="number" id="r" min="0" placeholder="Masukkan nilai r">
-                </div>
-                <div class="input-group">
+                <div class="input-group full-width">
                     <label for="calculationType">Jenis Perhitungan:</label>
                     <select id="calculationType">
                         <optgroup label="Permutasi">
@@ -59,9 +51,17 @@
                         </optgroup>
                     </select>
                 </div>
-                <!-- nambah form input untuk permutasi unsur sama -->
-                <div class="input-group same-elements-input" id="sameElementsInput" style="display: none;">
-                    <label>Jumlah Unsur Sama (pisahkan koma):</label>
+                <div class="input-group">
+                    <label for="n">Nilai n (Total Objek):</label>
+                    <input type="number" id="n" min="0" placeholder="Masukkan nilai n">
+                </div>
+                <div class="input-group" id="input-r-container">
+                    <label for="r" >Nilai r (Objek Diambil):</label>
+                    <input type="number" id="r" min="0" placeholder="Masukkan nilai r">
+                </div>
+                <!-- form input untuk permutasi unsur sama -->
+                <div class="input-group same-elements-input" id="sameElementsInput">
+                    <label>Nilai n sama:</label>
                     <input type="text" id="sameElements" placeholder="Contoh: 2,3,1">
                 </div>
 

@@ -1,4 +1,4 @@
-// buat hamburger aktiv 
+// buat hamburger aktiv di mobile
 document.addEventListener('DOMContentLoaded', function() {
 const menuButton = document.getElementById('menu-button');
 const navMenu = document.querySelector('.navigation'); 
@@ -44,7 +44,7 @@ function combination(n, r) {
 }
 
 // Fungsi permutasi dengan unsur sama
-function permutationWithSameElements(n, sameElements) {
+function permutation_same(n, sameElements) {
     let denominator = 1;
     sameElements.forEach(element => {
         denominator *= factorial(element);
@@ -57,29 +57,28 @@ function circularPermutation(n) {
     return factorial(n - 1);
 }
 
-// Fungsi kombinasi dengan pengulangan
-function combinationWithRepetition(n, r) {
-    return combination(n + r - 1, r);
-}
-
 // Update formula display berdasarkan pilihan
 const calculationTypeEl = document.getElementById('calculationType');
-
-// Hanya jalankan kode kalkulator jika elemen 'calculationType' ada di halaman
-if (calculationTypeEl) { 
+if (calculationTypeEl) {
     calculationTypeEl.addEventListener('change', function() {
         updateFormulaDisplay();
-        toggleSameElementsInput();
-    });
+        toggleInputs();
+    })
 }
 
-function toggleSameElementsInput() {
+function toggleInputs() {
+    const type = document.getElementById('calculationType').value;
     const sameElementsDiv = document.getElementById('sameElementsInput');
-    const calculationType = document.getElementById('calculationType').value;
-    
-    if (calculationType === 'permutation_same') {
+    const rContainer = document.getElementById('input-r-container');
+
+    rContainer.style.display = 'block';
+    sameElementsDiv.style.display = 'none';
+
+    if (type === 'permutation_same') {
+        rContainer.style.display = 'none';
         sameElementsDiv.style.display = 'block';
-    } else {
+    } else if (type == 'circular') {
+        rContainer.style.display = 'none';
         sameElementsDiv.style.display = 'none';
     }
 }
@@ -104,7 +103,7 @@ function calculate() {
     const type = document.getElementById('calculationType').value;
     
     // Validasi input
-    if (isNaN(n) || n < 0 || isNaN(r) || r < 0) {
+    if (isNaN(n) || n < 0) {
         Swal.fire({
             title: 'Error',
             text: 'Masukkan nilai n yang valid (bilangan bulat non-negatif)',
@@ -112,12 +111,24 @@ function calculate() {
             confirmButtonText: 'Oke',
             confirmButtonColor: '#00BFFF',
             background: '#000',
-            color: '#fff',
-        }
-        )
+            color: '#fff'
+        });
         return;
     }
     
+    if ((type === 'permutation' || type === 'combination') && (type === 'combination') && (isNaN(r) || r < 0)) {
+        Swal.fire ({
+            title: 'error',
+            text: 'Masukan nilai r yang valid',
+            icon: 'error',
+            confirmButtonText: 'Oke',
+            confirmButtonColor: '#00BFFF',
+            background: '#000',
+            color: '#fff'
+        });
+        return;
+    } 
+
     let result, explanation;
     
     try {
@@ -141,7 +152,7 @@ function calculate() {
                 
                 if (sumSame !== n) throw new Error(`Total unsur sama (${sumSame}) harus sama dengan n (${n})`);
                 
-                result = permutationWithSameElements(n, sameElements);
+                result = permutation_same(n, sameElements);
                 explanation = `P = ${n}! / (${sameElements.map(el => `${el}!`).join(' × ')}) = ${result}`;
                 break;
                 
@@ -267,7 +278,7 @@ const quizData = [
     }
 ];
 
-// Durasi waktu per soal dalam detik
+// Durasi waktu per soal
 const TIME_PER_QUESTION = 30; 
 
 // Variabel penting buat ngatur kuis
@@ -277,7 +288,7 @@ let timer; // Variabel buat nyimpan ID timer
 let timeLeft = TIME_PER_QUESTION; // Sisa waktu sekarang
 let userAnswers = []; // Array buat nyimpan jawaban user & statusnya
 
-// Ambil elemen HTML biar gampang dimanipulasi
+// Ambil elemen HTML
 const quizContainer = document.querySelector('.quiz-container');
 const questionTextEl = document.getElementById('question-text');
 const optionsAreaEl = document.getElementById('options-area');
@@ -314,7 +325,7 @@ function loadQuestion() {
 
     const currentQ = quizData[currentQuestionIndex];
     
-    // Update tampilan nomor soal
+    // Update tampilan nomor soal 1-5
     questionNumberDisplayEl.textContent = `Soal ${currentQuestionIndex + 1} dari ${quizData.length}`;
     
     // Tampilkan teks soal
